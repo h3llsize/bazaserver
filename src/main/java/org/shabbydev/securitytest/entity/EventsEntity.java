@@ -1,19 +1,18 @@
 package org.shabbydev.securitytest.entity;
 
-import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;;
 
 @Table
 @Entity
 @Getter
 @Setter
 public class EventsEntity {
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -29,7 +28,7 @@ public class EventsEntity {
     private String title;
 
     @Column(nullable = false)
-    private String desc;
+    private String description;
 
     @Column(nullable = false)
     private String imageUrl;

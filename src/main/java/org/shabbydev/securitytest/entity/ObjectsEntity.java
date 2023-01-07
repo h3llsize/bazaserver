@@ -1,7 +1,6 @@
 package org.shabbydev.securitytest.entity;
 
-import jakarta.persistence.*;
-import lombok.AccessLevel;
+import javax.persistence.*;;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,10 +9,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ObjectsEntity {
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -29,7 +27,7 @@ public class ObjectsEntity {
     private String title;
 
     @Column(nullable = false)
-    private String desc;
+    private String description;
 
     @Column(nullable = false)
     private String imageUrl;

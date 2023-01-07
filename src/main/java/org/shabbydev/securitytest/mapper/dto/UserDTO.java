@@ -1,8 +1,5 @@
 package org.shabbydev.securitytest.mapper.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 import org.shabbydev.securitytest.entity.PageEntity;
 
@@ -19,6 +16,8 @@ public class UserDTO {
     private String email;
 
     private String password;
+
+    private int roles;
 
     private Set<PageEntity> userPosts;
 }

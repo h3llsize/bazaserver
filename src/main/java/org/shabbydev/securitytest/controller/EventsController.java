@@ -5,13 +5,10 @@ import org.shabbydev.securitytest.mapper.dto.PageDTO;
 import org.shabbydev.securitytest.service.EventsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.yaml.snakeyaml.events.Event;
 
-@RequestMapping("/api/events")
+@RequestMapping("/api/events/")
 @RestController
 public class EventsController {
 
@@ -31,8 +28,8 @@ public class EventsController {
         return eventsService.findByPageAndTitle(Integer.parseInt(page), "%" + title + "%");
     }
 
-    @GetMapping("post")
-    public EventsDTO findById(@RequestParam String id) {
+    @GetMapping("{id}")
+    public EventsDTO findById(@PathVariable String id) {
         return eventsService.findById(Long.valueOf(id));
     }
 

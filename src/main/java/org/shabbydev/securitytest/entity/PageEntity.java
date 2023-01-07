@@ -1,20 +1,19 @@
 package org.shabbydev.securitytest.entity;
+import javax.persistence.*;;
 
-import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.catalina.User;
+
+import java.time.Instant;
 
 @Entity
-@Table(name = "page")
+@Table(name = "post")
 @Getter
 @Setter
 public class PageEntity {
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -37,7 +36,15 @@ public class PageEntity {
     private String imageUrl;
 
     @Column(nullable = false)
-    private String desc;
+    private String description;
+
+    @Column(nullable = false)
+    private Instant createdDate = Instant.now();
+
+    private Instant publishDate;
+
+    @Column(nullable = false)
+    private boolean checked = false;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_entity_id")

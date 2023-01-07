@@ -1,7 +1,7 @@
 package org.shabbydev.securitytest.entity;
 
-import jakarta.persistence.*;
-import lombok.AccessLevel;
+import javax.persistence.*;;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +37,17 @@ public class UserEntity {
     @Column(nullable = false)
     private String password;
 
+    private int roles;
+
     @OneToMany(fetch = FetchType.EAGER)
     private Set<PageEntity> userPosts;
+
+    public UserEntity builder(String name, String surname, String email, String password) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+
+        return this;
+    }
 }

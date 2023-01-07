@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.shabbydev.securitytest.entity.UserEntity;
 import org.shabbydev.securitytest.mapper.dto.UserDTO;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = PageMapper.class)
 public interface UserMapper {
     UserDTO toDto(UserEntity userEntity);
 
