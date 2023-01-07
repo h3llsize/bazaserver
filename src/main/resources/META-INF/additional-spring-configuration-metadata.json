@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "keycloak.auth-server-url",
+      "type": "java.lang.String",
+      "description": "Description for keycloak.auth-server-url."
+    },
+    {
+      "name": "SecurityTest.app.jwtSecret",
+      "type": "java.lang.String",
+      "description": "Description for SecurityTest.app.jwtSecret."
+    }
+  ] }
